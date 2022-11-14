@@ -10,7 +10,7 @@ function findCity() {
         if (response.ok) {
             response.json().then(function (data) {
 
-                $("#city-name")[0].textContent = cityName + " (" + moment().format('M/D/YYYY') + ")";
+                $("#city-name")[0].textContent = cityName + " (" + dayjs().format('M/D/YYYY') + ")";
 
                 $("#city-list").append('<button type="button" class="list-group-item list-group-item-light list-group-item-action city-name">' + cityName);
 
@@ -74,7 +74,7 @@ function getCurrentWeather(data) {
     getFutureWeather(data);
 }
 
-// Function to get forecast weather
+// Function to get 5 day weather forecast
 function getFutureWeather(data) {
     for (var i = 0; i < 5; i++) {
         var futureWeather = {
@@ -94,3 +94,40 @@ function getFutureWeather(data) {
         $(currentSelector)[0].textContent = "Humidity: " + futureWeather.humidity + "%";
     }
 }
+
+// Function if city name has more than one word
+function titleCase(city) {
+    var updatedCity = city.toLowerCase().split(" ");
+    var returnedCity = "";
+    for (var i = 0; i < updatedCity.length; i++) {
+        updatedCity[i] = updatedCity[i][0].toUpperCase() + updatedCity[i].slice(1);
+        returnedCity += " " + updatedCity[i];
+    }
+    return returnedCity;
+}
+
+// Function for unix time
+function convertUnixTime(data, index) {
+    const dateObject = new Date(data.daily[index + 1].dt * 1000);
+
+    return (dateObject.toLocaleDateString());
+}
+
+$("#search-button").on("click", function (e) {
+    e.preventDefault();
+
+    findCity();
+
+    $("form")[0].reset();
+})
+
+$(".city-list-box").on("click", ".city-name", function () {
+
+    var coordinates = (localStorage.getItem($(this)[0].textContent)).split(" ");
+    coordinates[0] = parseFloat(coordinates[0]);
+    coordinates[1] = parseFloat(coordinates[1]);
+
+    $("#city-name")[0].textContent = $(this)[0].textContent + " (" + dayjs().format('M/D/YYYY') + ")";
+
+    getListCity(coordinates);
+})
