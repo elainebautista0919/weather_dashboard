@@ -1,4 +1,141 @@
 /* Universal Selector */
+
 * {
     font-family: 'Open Sans', sans-serif;
+}
+
+/* Element Selector */
+
+body {
+    margin: 5px;
+}
+
+main {
+    display: flex;
+}
+
+section {
+    margin-top: 10px;
+}
+
+/* Class Selector */
+
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: #171C30;
+}
+
+.search-panel {
+    width: 25%;
+    margin: 10px 20px 0 10px;
+    padding: 10px 0 10px 10px;
+    background-color: #BDBDBD;
+}
+
+.search-button-panel {
+    margin-left: -52px;
+}
+
+
+
+.city-list-box {
+    margin-top: 5px;
+}
+
+.city-name {
+    width: 89%;
+}
+
+.results-panel {
+    width: 75%;
+    padding-bottom: 10px;
+    visibility: hidden;
+}
+
+.current-conditions-panel {
+    border: 5px solid #171C30;
+    background-color: #BDBDBD;
+    border-radius: 5px;
+    border-right: none;
+    padding-left: 10px;
+    padding-bottom: 30px;
+}
+
+.name-block,
+.uv-index-block {
+    display: flex;
+    align-items: center;
+}
+
+#uv-index {
+    margin-left: 5px;
+    padding: 5px 10px;
+}
+
+.forecast-panel {
+    padding-top: 50px;
+}
+
+.container {
+    display: inline;
+}
+
+.card-header,
+.card-body {
+    text-align: center;
+}
+
+.card-header {
+    background-color: #171C30;
+    color: white;
+}
+
+.card-body {
+    background-color: #BDBDBD;
+}
+
+.favorable {
+    background-color: green;
+    color: white;
+}
+
+.moderate {
+    background-color: yellow;
+    color: black;
+}
+
+.severe {
+    background-color: red;
+    color: white;
+}
+
+/* ID Selector */
+#search-button {
+    background-color: #171C30;
+}
+
+/* Viewports */
+
+@media screen and (max-width: 575px) {
+    .search-panel {
+        width: 40%;
+    }
+
+    .search-button-panel {
+        margin-left: 0px;
+    }
+
+    .search-panel h3 {
+        font-size: 15px;
+    }
+
+    .form-row {
+        display: block;
+        text-align: center;
+    }
+
+    .results-panel {
+        width: 60%;
+    }
 }
