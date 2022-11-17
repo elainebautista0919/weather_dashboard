@@ -56,12 +56,12 @@ section {
 }
 
 .current-conditions-panel {
-    border: 5px solid #171C30;
     background-color: #BDBDBD;
     border-radius: 5px;
     border-right: none;
     padding-left: 10px;
     padding-bottom: 30px;
+    margin-right: 500px;
 }
 
 .name-block,
