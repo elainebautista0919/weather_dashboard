@@ -37,14 +37,16 @@ section {
     margin-left: -52px;
 }
 
-
-
 .city-list-box {
     margin-top: 5px;
+    border-radius: 3px;
 }
 
 .city-name {
-    width: 89%;
+    width: 100%;
+    padding-top: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 .results-panel {
